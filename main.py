@@ -1,43 +1,50 @@
-class Student:
-    # [assignment] Skeleton class. Add your code here
-    def __init__(self, name, age, tracks, score):
-    #Define the attributes for this class
-        self.Name= name
-        self.Age= age
-        self.Tracks = []
-        self.Tracks.append(tracks)
-        self.Score= score
-    #Define methods  for the the classes    
-    def change_name(self, new_name):
-        self.Name= new_name
+import random
 
-    def change_age(self, new_age):
-        self.Age= new_age
+def Rock_Paper_Scissors():
+    while(1):
+        game_choices= ['R', 'P', 'S']
+        print('Welcome to the game\n')
+        print('Please select an option: R for rock, P for paper, S for scissors')
+        
+        player_choice= input()
+        play = player_choice.upper()
+        correct_choice= play in game_choices
+        
+        cpu_choice= random.choice(game_choices)
 
-    def add_track(self, new_track):
-        self.Tracks.append(new_track)
+        while(1):
+            if(correct_choice==False):
+                 print("You picked an invalid option, pick again.")
+                 break;
+            
+            elif(cpu_choice=='R'):
+                if(play=='S'):
+                    print("Computer picked", cpu_choice, ". Computer won!")
+                elif(play=='P'):
+                    print("Computer picked", cpu_choice, ". You won!")
+                elif(play=='R'):
+                    print("Computer picked", cpu_choice, "too, it was a draw play again")
+                break;
+    
+            elif(cpu_choice=='S'):
+                if(play=='P'):
+                    print("Computer picked", cpu_choice, ". Computer won!")
+                elif(play=='R'):
+                    print("Computer picked", cpu_choice, ". You won!")
+                elif(play=='S'):
+                    print("Computer picked", cpu_choice, "too, it was a draw play again")
+                break;
 
-    def get_score(self):
-        return self.Score
+            elif(cpu_choice=='P'):
+                if(play=='R'):
+                    print("Computer picked", cpu_choice, ". Computer won!")
+                elif(play=='S'):
+                    print("Computer picked", cpu_choice, ". You won!")
+                elif(play=='R'):
+                    print("Computer picked", cpu_choice, "too, it was a draw play again")    
+                break;
 
-
-
-Bob = Student(name="Bob", age=26, tracks=["FE","BE"],score=20.90)
-
-print(Bob)
-print(Bob.Name)
-print(Bob.Age)
-print(Bob.Tracks)
-
-# Expected methods
-Bob.change_name("Peter")
-Bob.change_age(34)
-Bob.add_track("UI/UX")
-Bob.get_score()
-
-print(Bob)
-print(Bob.Name)
-print(Bob.Age)
-print(Bob.Tracks)
-
-      
+        
+        
+    
+   
